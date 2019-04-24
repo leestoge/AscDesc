@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool allowJump;
 
+    private float movement;
+
     void Awake()
     {
         allowJump = false;
@@ -23,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        movement = Input.GetAxisRaw("Horizontal");
+
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
 
         if (isGrounded)
@@ -34,8 +38,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpForce;
             allowJump = false;
-        }
-
+        }     
     }
 
     // Update is called once per frame
@@ -46,12 +49,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0f) // press d/right arrow
+        if (movement > 0f) // press d/right arrow
         {
             playerMoving = true;
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
         }
-        else if (Input.GetAxisRaw("Horizontal") < 0f) // press a/left arrow
+        else if (movement < 0f) // press a/left arrow
         {
             playerMoving = true;
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
