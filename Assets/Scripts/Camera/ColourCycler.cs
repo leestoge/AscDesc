@@ -5,7 +5,7 @@ public class ColourCycler : MonoBehaviour
     public Color[] Colours;
     private int _currentIndex;
     private Camera _cam;
-    public bool colourShouldChange;
+    private bool colourShouldChange;
     public float Speed = 5f;
 
 

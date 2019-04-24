@@ -19,6 +19,6 @@ public class GameManager : MonoBehaviour
 
     void RestartAfter()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Gameplay"); // change to descend?
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Descend");
     }
 }

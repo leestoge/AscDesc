@@ -143,14 +143,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 088624064eeec5543a3112079a4fcb89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGrounded: 0
   playerMoving: 0
   feetPos: {fileID: 2723861418362508282}
   checkRadius: 0.5
   moveSpeed: 2
-  jumpForce: 8
+  jumpForce: 10
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  allowJump: 0
 --- !u!114 &1121849897713751627
 MonoBehaviour:
   m_ObjectHideFlags: 0
