@@ -1,0 +1,58 @@
+###
+# Unity folders and files
+###
+[Ll]ibrary/
+[Ll]ocal[Cc]ache/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Uu]nityGenerated/
+Assets/AssetStoreTools*
+
+# Visual Studio cache directory
+.vs/
+
+###
+# VS/MD solution and project files
+###
+[Ee]xportedObj/
+ExportedObj/
+.consulo/
+*.booproj
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+.DS_Store
+
+# Unity3D generated meta files
+*.pidb.meta
+*.pdb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+# Builds
+*.apk
+*.unitypackage
+
+###
+# OS generated
+###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
