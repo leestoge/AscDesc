@@ -12,8 +12,11 @@ public class Platform : MonoBehaviour
     public float movingPlatformLeft_Speed = -1f;
     public float movingPlatformRight_Speed = 1f;
 
+    private PlayerMovement pm;
+
     void Awake()
     {
+        pm = FindObjectOfType<PlayerMovement>();
         if (isBreakable)
         {
             anim = GetComponent<Animator>();
@@ -91,6 +94,15 @@ public class Platform : MonoBehaviour
             {
                 target.gameObject.GetComponent<PlayerMovement>().PlatformMove(movingPlatformRight_Speed);
             }
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D target)
+    {
+        if (target.gameObject.CompareTag("Player"))
+        {
+            pm.isGrounded = false;
+            pm.allowJump = true;
         }
     }
 }

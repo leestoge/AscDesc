@@ -3,7 +3,7 @@
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private bool isGrounded;
+    public bool isGrounded;
     [HideInInspector]
     public bool playerMoving;
 
@@ -13,8 +13,11 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 1f;   
     public LayerMask whatIsGround;
 
+    public bool allowJump;
+
     void Awake()
     {
+        allowJump = false;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -22,9 +25,15 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
 
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded)
+        {
+            allowJump = false;
+        }
+
+        if (allowJump && Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = Vector2.up * jumpForce;
+            allowJump = false;
         }
 
     }
