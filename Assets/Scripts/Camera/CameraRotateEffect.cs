@@ -2,35 +2,54 @@
 
 public class CameraRotateEffect : MonoBehaviour
 {
-    private PlayerMovement pm;
+    private PlayerMovement pmDesc;
+    private PlayerMovementASC pmAsc;
     private float mod = 0.02f;
     private float zVal;
 
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        pm = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        pmDesc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        pmAsc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementASC>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (pm.playerMoving)
+        if (pmAsc != null)
         {
-            Vector3 rot = new Vector3(0, 0, zVal);
-            transform.eulerAngles = rot;
-
-            zVal += mod;
-
-            if (transform.eulerAngles.z >= 5.0f && transform.eulerAngles.z < 10.0f)
+            if (pmAsc.playerMoving)
             {
-                mod = -0.02f;
+                RotateCam();
             }
-            else if (transform.eulerAngles.z < 355.0f && transform.eulerAngles.z > 350.0f)
+        }
+        else if (pmDesc != null)
+        {
+            if (pmDesc.playerMoving)
             {
-                mod = 0.02f;
+                RotateCam();
             }
+        }
+        else
+        {
+            Debug.Log("Can't find one of the movement components.");
+        }
+
+    }
+
+    void RotateCam()
+    {
+        Vector3 rot = new Vector3(0, 0, zVal);
+        transform.eulerAngles = rot;
+
+        zVal += mod;
+
+        if (transform.eulerAngles.z >= 5.0f && transform.eulerAngles.z < 10.0f)
+        {
+            mod = -0.02f;
+        }
+        else if (transform.eulerAngles.z < 355.0f && transform.eulerAngles.z > 350.0f)
+        {
+            mod = 0.02f;
         }
     }
 }
