@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7636059313761676644}
   - component: {fileID: 7636059313761676645}
   - component: {fileID: 7636059313761676640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Breakable Platform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,3 +168,6 @@ MonoBehaviour:
   isBreakable: 1
   isSpike: 0
   isPlatform: 0
+  movingPlatformLeft_Speed: -1
+  movingPlatformRight_Speed: 1
+  playerFalling: 0

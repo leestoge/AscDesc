@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 2654645777184466595}
   - component: {fileID: 2654645777184466594}
   - component: {fileID: 2654645777184466599}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Moving Platform Right
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,3 +168,6 @@ MonoBehaviour:
   isBreakable: 0
   isSpike: 0
   isPlatform: 0
+  movingPlatformLeft_Speed: -1
+  movingPlatformRight_Speed: 1
+  playerFalling: 0
