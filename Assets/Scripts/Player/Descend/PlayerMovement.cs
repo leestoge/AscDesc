@@ -19,12 +19,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
+        playerMoving = false;
         allowJump = false;
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        if (Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Horizontal") < 0)
+        {
+            playerMoving = true;
+        }
+
         movement = Input.GetAxisRaw("Horizontal");
 
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
@@ -51,17 +57,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (movement > 0f) // press d/right arrow
         {
-            playerMoving = true;
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
         }
         else if (movement < 0f) // press a/left arrow
         {
-            playerMoving = true;
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
-        }
-        else
-        {
-            playerMoving = false;
         }
     }
 

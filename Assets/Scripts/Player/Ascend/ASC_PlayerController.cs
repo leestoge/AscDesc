@@ -6,11 +6,12 @@ public class ASC_PlayerController : MonoBehaviour
     private float moveInput;
     private float speed = 10f;
     [HideInInspector]
-    public bool playerMoving = false;
+    public bool playerMoving;
 
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        playerMoving = false;
     }
 
     void FixedUpdate()
