@@ -3,14 +3,14 @@
 public class CameraRotateEffect : MonoBehaviour
 {
     private PlayerMovement pmDesc;
-    private PlayerMovementASC pmAsc;
+    private ASC_PlayerController pmAsc;
     private float mod = 0.02f;
     private float zVal;
 
     void Awake()
     {
         pmDesc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        pmAsc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovementASC>();
+        pmAsc = GameObject.FindGameObjectWithTag("Player").GetComponent<ASC_PlayerController>();
     }
 
     void Update()
