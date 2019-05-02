@@ -15,25 +15,46 @@ public class Destroy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Random.Range(1, 6) > 1)
+        if (collision.gameObject.name.StartsWith("Platform"))
         {
-            myPlatform = Instantiate(platformPrefab,
-                new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (5 + Random.Range(0.5f, 1f))),
-                Quaternion.identity);
+            if (Random.Range(1, 7) == 1)
+            {
+                Destroy(collision.gameObject);
+                Instantiate(bigBouncePrefab, new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (5 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+            }
+            else if (Random.Range(1, 7) == 2)
+            {
+                Destroy(collision.gameObject);
+                Instantiate(spikePrefab, new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (5 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+            }
+            else
+            {
+                collision.gameObject.transform.position = new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (5 + Random.Range(0.2f, 1.0f)));
+            }
         }
-        else if(Random.Range(1, 6) == 2)
+        else if (collision.gameObject.name.StartsWith("Big"))
         {
-            myPlatform = Instantiate(spikePrefab,
-                new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (5 + Random.Range(0.5f, 1f))),
-                Quaternion.identity);
+            if (Random.Range(1, 7) == 1)
+            {
+                collision.gameObject.transform.position = new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (5 + Random.Range(0.2f, 1.0f)));              
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+                Instantiate(platformPrefab, new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (5 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+            }
         }
-        else if (Random.Range(1, 6) == 4)
+        else if (collision.gameObject.name.StartsWith("Spike"))
         {
-            myPlatform = Instantiate(bigBouncePrefab,
-                new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (5 + Random.Range(0.5f, 1f))),
-                Quaternion.identity);
+            if (Random.Range(1, 7) == 2)
+            {
+                collision.gameObject.transform.position = new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (5 + Random.Range(0.2f, 1.0f)));
+            }
+            else
+            {
+                Destroy(collision.gameObject);
+                Instantiate(platformPrefab, new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (5 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+            }
         }
-
-        Destroy(collision.gameObject);
     }
 }
