@@ -247,9 +247,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5288013879753565731}
   - component: {fileID: 5288013879753565730}
-  - component: {fileID: 5288013879753565735}
+  - component: {fileID: 848990696466253923}
   - component: {fileID: 5288013879753565734}
-  - component: {fileID: 8985234749448983544}
+  - component: {fileID: 6443861508060428616}
   m_Layer: 0
   m_Name: BigBouncePlatformAsc
   m_TagString: Untagged
@@ -328,8 +328,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5288013879753565735
-BoxCollider2D:
+--- !u!68 &848990696466253923
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -342,18 +342,10 @@ BoxCollider2D:
   m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.64, y: 0.45}
-    newSize: {x: 2.64, y: 0.45}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.64, y: 0.45}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.3, y: 0.22}
+  - {x: 1.3, y: 0.22}
 --- !u!251 &5288013879753565734
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -373,7 +365,7 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!114 &8985234749448983544
+--- !u!114 &6443861508060428616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,9 +374,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5288013879753565728}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 281271dfe01a4314c91a11ee8b891208, type: 3}
+  m_Script: {fileID: 11500000, guid: a708c1ac53f815741978835fd110da81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 70
 --- !u!1 &5669357652275184417
 GameObject:
   m_ObjectHideFlags: 0

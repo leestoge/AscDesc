@@ -20,14 +20,10 @@ public class ASC_PlayerController : MonoBehaviour
         playerMoving = false;
     }
 
-    void FixedUpdate()
-    {
-        moveInput = Input.GetAxisRaw("Horizontal");
-        rb2d.velocity = new Vector2(moveInput * speed, rb2d.velocity.y);
-    }
-
     void Update()
     {
+        moveInput = Input.GetAxisRaw("Horizontal");
+
         if (Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Horizontal") < 0)
         {
             playerMoving = true;
@@ -39,5 +35,12 @@ public class ASC_PlayerController : MonoBehaviour
         }
 
         scoreText.text = "Score: " + Mathf.Round(topScore);
+    }
+
+    void FixedUpdate()
+    {
+        Vector2 velocity = rb2d.velocity;
+        velocity.x = moveInput * speed;
+        rb2d.velocity = velocity;
     }
 }

@@ -2,13 +2,22 @@
 
 public class ASC_Bounce : MonoBehaviour
 {
+    public float jumpForce;
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
+            Rigidbody2D rb = collision.collider.GetComponent<Rigidbody2D>();
+
+            if (rb != null)
             {
-                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 550f);
+                if (rb.velocity.y <= 0)
+                {
+                    Vector2 velocity = rb.velocity;
+                    velocity.y = jumpForce;
+                    rb.velocity = velocity;
+                }
             }
         }
     }

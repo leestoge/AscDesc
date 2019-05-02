@@ -626,7 +626,7 @@ MonoBehaviour:
   useScanlines: 0
   scanlineSize: 512
   scanlineIntensity: 0.2
-  _material: {fileID: 2098487233}
+  _material: {fileID: 2111919005}
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,7 +1921,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!21 &2098487233
+--- !u!21 &2111919005
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1955,8 +1955,8 @@ Material:
     - _DisplacementSpeed: 1
     - _NoiseBottomHeight: 0.04
     - _NoiseBottomIntensity: 1
-    - _OffsetNoiseX: 0.26180798
-    - _OffsetNoiseY: -0.0024248995
+    - _OffsetNoiseX: 0.76151145
+    - _OffsetNoiseY: 0.048793755
     - _OffsetPosY: 0
     - _StaticIntensity: 0.5
     - _UseChromaticAberration: 1
@@ -2032,11 +2032,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 38498335281076448, guid: a84cdf8952434e349bd9671d26be57a5,
+    - target: {fileID: 38498335281076453, guid: a84cdf8952434e349bd9671d26be57a5,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 903bef0ecd2924b4a8008ade02e834ad, type: 2}
+      propertyPath: scroll_Speed
+      value: -0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a84cdf8952434e349bd9671d26be57a5, type: 3}
 --- !u!1001 &3238627706566233061
