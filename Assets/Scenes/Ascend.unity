@@ -120,6 +120,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!21 &135448659
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/RetroCameraEffect
+  m_Shader: {fileID: 4800000, guid: 2cfdcae76c757405786f1219a383da6e, type: 3}
+  m_ShaderKeywords: CHROMATIC_ON DISPLACEMENT_ON VIGNETTE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondaryTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ChromaticAberration: 2
+    - _DisplacementAmplitude: 0.001
+    - _DisplacementFrequency: 100
+    - _DisplacementSpeed: 1
+    - _NoiseBottomHeight: 0.04
+    - _NoiseBottomIntensity: 1
+    - _OffsetNoiseX: 0.5322117
+    - _OffsetNoiseY: -0.14818856
+    - _OffsetPosY: 0
+    - _StaticIntensity: 0.5
+    - _UseChromaticAberration: 1
+    - _UseDisplacement: 1
+    - _UseStaticNoise: 1
+    - _UseVignette: 0
+    - _Vignette: 0.1
+    m_Colors: []
 --- !u!1001 &152841983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -912,6 +956,7 @@ GameObject:
   - component: {fileID: 7919483154951007026}
   - component: {fileID: 7919483154951007181}
   - component: {fileID: 7919483154951007182}
+  - component: {fileID: 7919483154951007028}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -982,6 +1027,44 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &7919483154951007028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7919483154951007024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e0eef68e9754b2a8a28e5afbe009a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useStaticNoise: 0
+  noiseTexture: {fileID: 0}
+  staticIntensity: 0.5
+  randomGlitches: 0
+  glitchIntensity: 1
+  glitchFrequency: 10
+  useDisplacementWaves: 1
+  displacementAmplitude: 1
+  displacementFrequency: 100
+  displacementSpeed: 1
+  useChromaticAberration: 1
+  chromaticAberration: 2
+  useVignette: 1
+  vignette: 0.1
+  useBottomNoise: 0
+  bottomHeight: 0.04
+  bottomIntensity: 1
+  useBottomStretch: 0
+  useRadialDistortion: 0
+  radialIntensity: 20
+  radialCurvature: 4
+  gammaScale: 1
+  useScanlines: 0
+  scanlineSize: 512
+  scanlineIntensity: 0.2
+  _material: {fileID: 135448659}
 --- !u!4 &7919483154951007180
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,7 +1097,11 @@ MonoBehaviour:
   - {r: 0.88235295, g: 0.92156863, b: 0.6509804, a: 0}
   - {r: 0.6156863, g: 0.8039216, b: 0.9647059, a: 0}
   - {r: 0.7176471, g: 0.7176471, b: 1, a: 0}
-  Speed: 5
+  - {r: 0.8862745, g: 0.7176471, b: 1, a: 0}
+  - {r: 0.65882355, g: 1, b: 0.79607844, a: 0}
+  - {r: 0.8862745, g: 0.7176471, b: 0.60784316, a: 0}
+  - {r: 0.8862745, g: 0.57254905, b: 0.60784316, a: 0}
+  Speed: 0.5
 --- !u!114 &7919483154951007182
 MonoBehaviour:
   m_ObjectHideFlags: 0
