@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ASC_PlayerController : MonoBehaviour
 {
@@ -8,8 +9,13 @@ public class ASC_PlayerController : MonoBehaviour
     [HideInInspector]
     public bool playerMoving;
 
+    //ui
+    public Text scoreText;
+    private float topScore;
+
     void Awake()
     {
+        topScore = 0.0f;
         rb2d = GetComponent<Rigidbody2D>();
         playerMoving = false;
     }
@@ -26,5 +32,12 @@ public class ASC_PlayerController : MonoBehaviour
         {
             playerMoving = true;
         }
+
+        if (rb2d.velocity.y > 0 && transform.position.y > topScore)
+        {
+            topScore = transform.position.y;
+        }
+
+        scoreText.text = "Score: " + Mathf.Round(topScore);
     }
 }
