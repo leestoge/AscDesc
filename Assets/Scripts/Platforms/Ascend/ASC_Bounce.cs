@@ -4,9 +4,12 @@ public class ASC_Bounce : MonoBehaviour
 {
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 550f);
+            if (collision.gameObject.GetComponent<Rigidbody2D>().velocity.y <= 0)
+            {
+                collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 550f);
+            }
         }
     }
 }
