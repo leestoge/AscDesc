@@ -3,12 +3,14 @@
 public class Asc_Plank : MonoBehaviour
 {
     public float jumpForce;
+    public GameObject regularPlatform;
     private EdgeCollider2D collider;
     private Rigidbody2D[] rb2ds;
     private Animator PlankBreak;
 
     void Awake()
     {
+        regularPlatform.transform.parent = null;
         PlankBreak = GetComponent<Animator>();
         rb2ds = GetComponentsInChildren<Rigidbody2D>();
         collider = GetComponent<EdgeCollider2D>();

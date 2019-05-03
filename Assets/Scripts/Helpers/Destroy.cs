@@ -6,7 +6,7 @@ public class Destroy : MonoBehaviour
     public GameObject platformPrefab;
     public GameObject bigBouncePrefab;
     public GameObject plankPrefab;
-    private GameObject myPlatform;
+    public GameObject movingPrefab;
 
     void Awake()
     {
@@ -27,6 +27,11 @@ public class Destroy : MonoBehaviour
                 Destroy(collision.gameObject);
                 Instantiate(plankPrefab, new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (4 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
             }
+            else if (Random.Range(1, 7) == 3)
+            {
+                Destroy(collision.gameObject);
+                Instantiate(movingPrefab, new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (4 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+            }
             else
             {
                 collision.gameObject.transform.position = new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (4 + Random.Range(0.2f, 1.0f)));
@@ -46,7 +51,11 @@ public class Destroy : MonoBehaviour
         }
         else if (collision.gameObject.name.StartsWith("Plank"))
         {
-            if (Random.Range(1, 7) == 2)
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.name.StartsWith("Moving"))
+        {
+            if (Random.Range(1, 7) == 3)
             {
                 collision.gameObject.transform.position = new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (4 + Random.Range(0.2f, 1.0f)));
             }
