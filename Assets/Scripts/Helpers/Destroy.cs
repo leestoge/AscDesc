@@ -7,6 +7,7 @@ public class Destroy : MonoBehaviour
     public GameObject bigBouncePrefab;
     public GameObject plankPrefab;
     public GameObject movingPrefab;
+    public GameObject spikePrefab;
 
     void Awake()
     {
@@ -31,6 +32,11 @@ public class Destroy : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 Instantiate(movingPrefab, new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (4 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
+            }
+            else if (Random.Range(1, 7) == 4)
+            {
+                Destroy(collision.gameObject);
+                Instantiate(spikePrefab, new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (4 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
             }
             else
             {
@@ -64,6 +70,10 @@ public class Destroy : MonoBehaviour
                 Destroy(collision.gameObject);
                 Instantiate(platformPrefab, new Vector2(Random.Range(-2.2f, 2.2f), player.transform.position.y + (4 + Random.Range(0.2f, 1.0f))), Quaternion.identity);
             }
+        }
+        else if (collision.gameObject.name.StartsWith("Spike"))
+        {
+            Destroy(collision.gameObject);
         }
     }
 }
