@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,15 +11,32 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
     }
 
-    public void RestartGame()
+    public void RestartAscend()
     {
-        Invoke("RestartAfter", 2f);
+        Invoke("RestartAscendAfter", 0.5f);
     }
 
-    void RestartAfter()
+    void RestartAscendAfter()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Descend");
+        SceneManager.LoadScene("Ascend");
+    }
+
+    public void RestartDescend()
+    {
+        Invoke("RestartDescendAfter", 0.5f);
+    }
+
+    void RestartDescendAfter()
+    {
+        SceneManager.LoadScene("Descend");
     }
 }

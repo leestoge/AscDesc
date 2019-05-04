@@ -20,6 +20,7 @@ public class Asc_Spike : MonoBehaviour
             {
                 if (rb.velocity.y <= 0)
                 {
+                    GameManager.instance.RestartAscend();
                     FindObjectOfType<AudioManager>().RandomizePitch("Death");
                     FindObjectOfType<AudioManager>().Play("Death");
                 }

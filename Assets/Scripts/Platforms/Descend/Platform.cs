@@ -61,7 +61,7 @@ public class Platform : MonoBehaviour
                 target.transform.position = new Vector2(1000f, 1000f);
                 FindObjectOfType<AudioManager>().RandomizePitch("Death");
                 FindObjectOfType<AudioManager>().Play("Death");
-                GameManager.instance.RestartGame();
+                GameManager.instance.RestartDescend();
             }
         }
     }

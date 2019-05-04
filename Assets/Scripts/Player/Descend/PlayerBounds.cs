@@ -34,7 +34,7 @@ public class PlayerBounds : MonoBehaviour
                 // ui?
                 FindObjectOfType<AudioManager>().RandomizePitch("Death");
                 FindObjectOfType<AudioManager>().Play("Death");
-                GameManager.instance.RestartGame();
+                GameManager.instance.RestartDescend();
             }
         }
     }
@@ -46,7 +46,7 @@ public class PlayerBounds : MonoBehaviour
             transform.position = new Vector2(1000f, 1000f);
             FindObjectOfType<AudioManager>().RandomizePitch("Death");
             FindObjectOfType<AudioManager>().Play("Death");
-            GameManager.instance.RestartGame();
+            GameManager.instance.RestartDescend();
         }
     }
 }
