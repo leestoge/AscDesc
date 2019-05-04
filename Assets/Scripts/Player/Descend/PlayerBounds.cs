@@ -32,7 +32,8 @@ public class PlayerBounds : MonoBehaviour
             {
                 outOfBounds = true;
                 // ui?
-                AudioManager.instance.DeathSound();
+                FindObjectOfType<AudioManager>().RandomizePitch("Death");
+                FindObjectOfType<AudioManager>().Play("Death");
                 GameManager.instance.RestartGame();
             }
         }
@@ -43,7 +44,8 @@ public class PlayerBounds : MonoBehaviour
         if (target.gameObject.CompareTag("TopSpike"))
         {
             transform.position = new Vector2(1000f, 1000f);
-            AudioManager.instance.DeathSound();
+            FindObjectOfType<AudioManager>().RandomizePitch("Death");
+            FindObjectOfType<AudioManager>().Play("Death");
             GameManager.instance.RestartGame();
         }
     }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,11 +18,16 @@ public class PlayerMovement : MonoBehaviour
 
     private float movement;
 
+    //ui
+    public Text scoreText;
+    private int Score;
+
     void Awake()
     {
         playerMoving = false;
         allowJump = false;
         rb = GetComponent<Rigidbody2D>();
+        Score = 0;
     }
 
     void Update()
@@ -43,8 +49,14 @@ public class PlayerMovement : MonoBehaviour
         if (allowJump && Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = Vector2.up * jumpForce;
+            FindObjectOfType<AudioManager>().RandomizePitch("JumpDesc");
+            FindObjectOfType<AudioManager>().Play("JumpDesc");
             allowJump = false;
-        }     
+        }
+
+        //ui
+
+        scoreText.text = "Score: " + Score;
     }
 
     // Update is called once per frame
@@ -68,5 +80,10 @@ public class PlayerMovement : MonoBehaviour
     public void PlatformMove(float x)
     {
         rb.velocity = new Vector2(x, rb.velocity.y);
+    }
+
+    public void IncreaseScore()
+    {
+        Score = Score + Random.Range(1, 6);
     }
 }

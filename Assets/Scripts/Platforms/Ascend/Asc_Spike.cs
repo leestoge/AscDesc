@@ -18,7 +18,11 @@ public class Asc_Spike : MonoBehaviour
 
             if (rb != null)
             {
-                // pause menu things idk
+                if (rb.velocity.y <= 0)
+                {
+                    FindObjectOfType<AudioManager>().RandomizePitch("Death");
+                    FindObjectOfType<AudioManager>().Play("Death");
+                }
             }
         }
     }

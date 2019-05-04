@@ -35,7 +35,8 @@ public class Asc_Plank : MonoBehaviour
                     Vector2 velocity = rb.velocity;
                     velocity.y = jumpForce;
                     rb.velocity = velocity;
-
+                    FindObjectOfType<AudioManager>().RandomizePitch("Break");
+                    FindObjectOfType<AudioManager>().Play("Break");
                     collider.enabled = false;
                     PlankBreak.SetTrigger("Break");
 

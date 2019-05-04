@@ -25,7 +25,7 @@ public class Platform : MonoBehaviour
 
     void Update()
     {
-        Move();
+        Move();      
     }
 
     void Move()
@@ -48,7 +48,8 @@ public class Platform : MonoBehaviour
     void DestroyGameObject()
     {
         Destroy(gameObject);
-        AudioManager.instance.BreakSound();
+        FindObjectOfType<AudioManager>().RandomizePitch("Break");
+        FindObjectOfType<AudioManager>().Play("Break");
     }
 
     void OnTriggerEnter2D(Collider2D target)
@@ -58,7 +59,8 @@ public class Platform : MonoBehaviour
             if (isSpike)
             {
                 target.transform.position = new Vector2(1000f, 1000f);
-                AudioManager.instance.GameOverSound();
+                FindObjectOfType<AudioManager>().RandomizePitch("Death");
+                FindObjectOfType<AudioManager>().Play("Death");
                 GameManager.instance.RestartGame();
             }
         }
@@ -70,13 +72,23 @@ public class Platform : MonoBehaviour
         {
             if (isBreakable)
             {
-                AudioManager.instance.LandSound();
+                pm.IncreaseScore();
+                FindObjectOfType<AudioManager>().RandomizePitch("Land");
+                FindObjectOfType<AudioManager>().Play("Land");
                 anim.Play("Break");
             }
 
             if (isPlatform)
             {
-                AudioManager.instance.LandSound();
+                pm.IncreaseScore();
+                FindObjectOfType<AudioManager>().RandomizePitch("Land");
+                FindObjectOfType<AudioManager>().Play("Land");
+            }
+
+            if (movingPlatform_Left || movingPlatform_Right)
+            {
+                pm.IncreaseScore();
+                FindObjectOfType<AudioManager>().Play("Moving");
             }
         }
     }
@@ -101,6 +113,11 @@ public class Platform : MonoBehaviour
     {
         if (target.gameObject.CompareTag("Player"))
         {
+            if (movingPlatform_Right || movingPlatform_Left)
+            {
+                FindObjectOfType<AudioManager>().Stop("Moving");
+            }
+
             pm.isGrounded = false;
             pm.allowJump = true;
         }

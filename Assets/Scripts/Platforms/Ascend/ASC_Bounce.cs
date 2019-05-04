@@ -17,6 +17,17 @@ public class ASC_Bounce : MonoBehaviour
                     Vector2 velocity = rb.velocity;
                     velocity.y = jumpForce;
                     rb.velocity = velocity;
+
+                    if (jumpForce <= 30)
+                    {
+                        FindObjectOfType<AudioManager>().RandomizePitch("Bounce");
+                        FindObjectOfType<AudioManager>().Play("Bounce");
+                    }
+                    else
+                    {
+                        FindObjectOfType<AudioManager>().RandomizePitch("BigBounce");
+                        FindObjectOfType<AudioManager>().Play("BigBounce");
+                    }
                 }
             }
         }

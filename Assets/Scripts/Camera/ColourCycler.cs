@@ -17,8 +17,6 @@ public class ColourCycler : MonoBehaviour
         _cam.backgroundColor = Colours[_currentIndex];
     }
 
-
-
     public void SetColour(Color colour)
     {
         _cam.backgroundColor = colour;
