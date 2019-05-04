@@ -28,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
         allowJump = false;
         rb = GetComponent<Rigidbody2D>();
         Score = 0;
+
+        if (scoreText == null)
+        {
+            Debug.Log("Menu Cube");
+        }
     }
 
     void Update()
@@ -55,8 +60,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //ui
-
-        scoreText.text = "Score: " + Score;
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + Score;
+        }
     }
 
     // Update is called once per frame
